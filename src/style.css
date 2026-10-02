@@ -1,0 +1,41 @@
+:root { color-scheme: dark; --ink: #e8eef7; --dim: #8fa0b8; --hip: #ff9a3c; --ctx: #3dffc4; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body {
+  font: 14px/1.5 "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(ellipse at 40% 45%, #11203a 0%, #060b16 70%);
+}
+#scene { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+#hud {
+  position: fixed; top: 16px; left: 16px; width: 330px; max-height: calc(100% - 32px); overflow: auto;
+  padding: 18px; border: 1px solid #ffffff1a; border-radius: 14px;
+  background: #060b16cc; backdrop-filter: blur(10px);
+}
+h1 { margin: 0 0 2px; font: 600 20px "IBM Plex Serif", Georgia, serif; }
+#phase-label { margin: 0; color: var(--hip); font-weight: 600; }
+#caption { margin: 6px 0 14px; color: var(--dim); min-height: 66px; }
+#buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+button {
+  padding: 8px 10px; border-radius: 8px; border: 1px solid #ffffff26; background: #ffffff0d;
+  color: inherit; font: inherit; cursor: pointer;
+}
+button:hover { background: #ffffff1c; }
+button:disabled { opacity: 0.4; cursor: default; }
+button.primary { grid-column: span 2; background: #3dffc41f; border-color: #3dffc466; }
+.meter { margin-bottom: 12px; }
+.meter label { display: flex; justify-content: space-between; color: var(--dim); font-size: 13px; }
+.bar { height: 6px; margin-top: 4px; border-radius: 3px; background: #ffffff14; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; transition: width 0.15s linear; }
+.bar .hip { background: var(--hip); }
+.bar .ctx { background: var(--ctx); }
+#chips { display: flex; gap: 6px; margin: 16px 0 6px; }
+.chip {
+  flex: 1; padding: 4px 0; text-align: center; font-size: 12px; border-radius: 6px;
+  border: 1px solid var(--c); color: var(--c); opacity: 0.45; transition: opacity 0.4s, background 0.4s;
+}
+.chip.on { opacity: 1; background: color-mix(in srgb, var(--c) 30%, transparent); transition: none; }
+#recall-text { margin: 0 0 14px; color: var(--dim); }
+#options { display: grid; gap: 6px; color: var(--dim); font-size: 13px; }
+#options input[type="range"] { vertical-align: middle; }
+@media (max-width: 640px) { #hud { width: calc(100% - 32px); max-height: 52%; } }
