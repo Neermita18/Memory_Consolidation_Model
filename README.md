@@ -7,7 +7,7 @@ Browser-based 3D spiking-network model of systems consolidation.
     npm test         # vitest
     npm run build
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 Flow: **Experience** (encode) → **Sleep** (hippocampal replay builds direct cortical links) → **Recall**
 (cue the first element; with the hippocampus silenced, only a consolidated memory completes the sequence).
